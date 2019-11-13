@@ -4,6 +4,13 @@
 // Write your Javascript code.
 var turn = "X";
 
+var cells = document.getElementByClassName("cell");
+
+
+
+
+
+
 
 function setTurn() {
     var turnElement = document.getElementById("turn");
@@ -47,7 +54,7 @@ function checkForWin() {
         }
     }
 
-    if (cells[0].innerText !== "" && cells[0].innerText === cells[4].innerText && cells[4].innerText === cells[9].innerText) {
+    if (cells[0].innerText !== "" && cells[0].innerText === cells[4].innerText && cells[4].innerText === cells[8].innerText) {
         setWinner(cells[4].innerText);
         return true;
     }
