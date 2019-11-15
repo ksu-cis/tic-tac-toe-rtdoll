@@ -2,15 +2,12 @@
 // for details on configuring this project to bundle and minify static web assets.
 
 // Write your Javascript code.
+
+//CODE FOR TIC TAC TOE
+/*
 var turn = "X";
 
-var cells = document.getElementByClassName("cell");
-
-
-
-
-
-
+var cells = document.getElementsByClassName("cell");
 
 function setTurn() {
     var turnElement = document.getElementById("turn");
@@ -72,3 +69,46 @@ for (i = 0; i < cells.length; i++) {
 }
 
 setTurn();
+*/
+//CODE FOR CHECKERS
+var squares = document.getElementsByClassName("square");
+var dragging;
+
+for (var i = 0; i < squares.length; i++) {
+    squares[i].addEventListener('dragenter', onDragEnter);
+    squares[i].addEventListener('drop', onDrop);
+    squares[i].addEventListener('dragleave', onDragLeave);
+    squares[i].addEventListener('dragstart', onDragStart);
+    squares[i].addEventListener('dragend', onDragEnd);
+}
+
+function onDragStart(event){
+    dragging = {
+        x: event.target.data.x,
+        y: event.target.data.y
+    }
+    console.log(event);
+}
+
+function onDragEnter(event) {
+    if (event.target.classList.contains("checker") || event.target.classList.contains("green") || event.target.children.length > 0)
+        return;
+    event.preventDefault();
+    event.target.style.backgroundColor = "yellow";
+    console.log(event);
+}
+
+function onDrop(event) {
+    console.log(event);
+}
+
+function onDragLeave(event) {
+    event.target.style.backgroundColor = null;
+    console.log(event);
+}
+
+function onDragEnd(event) {
+    console.log(event);
+    
+    // do something with
+}
